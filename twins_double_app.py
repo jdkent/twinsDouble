@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 
 import datetime
@@ -28,7 +27,13 @@ for game_id in game_ids:
         DOUBLE = True
         break
 
+title = "# Did the Twins score a double yesterday?"
 if DOUBLE:
-    print("Twins scored a double, get some chicken!")
+    answer = "Twins scored a double, get some chicken!"
 else:
-    print("No double, no chicken")
+    answer = "No double, no chicken"
+
+output = '\n'.join([title, answer])
+
+with open("README.md", 'w') as ans:
+    ans.write(output)
