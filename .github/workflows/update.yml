@@ -29,7 +29,7 @@ jobs:
       run: ./twins_double_app.py
     - name: update README.md
       run: |
-        if [ -z "$(git diff-index HEAD --)" ]; then
+        if [ -z "$(git status --porcelain)" ]; then
           echo "No files to be committed!"
         else
           # Push quietly to prevent showing the token in log
