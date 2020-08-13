@@ -28,13 +28,10 @@ for game_id in game_ids:
         DOUBLE = True
         break
 
-title = "## Did the Twins score a double yesterday?"
 if DOUBLE:
     answer = "# Twins scored a double, get some chicken!"
 else:
     answer = "# No double, no chicken"
 
-output = '\n'.join([title, answer])
-
 with open("README.md", 'w') as ans:
-    ans.write(output)
+    ans.write(answer)
