@@ -29,8 +29,15 @@ jobs:
       run: ./twins_double_app.py
     - name: update README.md
       run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        git commit -m "update README.md"
-        git push
+        if [ -z $(git ls-files --other --exclude-standard --directory) ]; then
+          echo "No files to be committed!"
+        else
+          # Push quietly to prevent showing the token in log
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "update README.md"
+          git push
+        fi
+
+        
