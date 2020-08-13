@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 import datetime
+import pytz
 import statsapi
 
 TWINS_TEAM_ID = 142
 
-yesterday = datetime.date.today() - datetime.timedelta(days=1) 
+yesterday = (datetime.datetime.now(pytz.timezone("US/Central")) - datetime.timedelta(days=1)).date() 
 
 game_ids = [game['game_id'] for game in statsapi.schedule(date=yesterday, team=TWINS_TEAM_ID)]
 
