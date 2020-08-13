@@ -29,8 +29,7 @@ jobs:
       run: ./twins_double_app.py
     - name: update README.md
       run: |
-        $(git diff-index --quiet HEAD --)
-        if [ $? -eq 0 ]; then
+        if [ -z $(git diff-index HEAD --) ]; then
           echo "No files to be committed!"
         else
           # Push quietly to prevent showing the token in log
