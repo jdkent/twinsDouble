@@ -1,1 +1,1 @@
-# No double, no chicken
+# Twins scored a double, get some chicken!
